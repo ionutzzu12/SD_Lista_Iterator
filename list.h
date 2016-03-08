@@ -9,15 +9,12 @@ using namespace std;
  
 struct ResizableArray {
 	int *array;
-	int capacity;
-	int size;
+	int size; //se va modifica la fiecare remove/add de element!
  
 	// Metoda de initializare
-	// Modificam sa realoce doar cu 1 la fiecare
-	ResizableArray(int capacity) {
-		this->capacity = capacity;
-		this->size = 0;
-		this->array = new int[ capacity ];
+	ResizableArray(int size = 0) {
+		this->size = size;
+		this->array = new int[ size ];
 	}
 
 	// Metoda care afiseaza elementele vectorului.
