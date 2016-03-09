@@ -7,12 +7,23 @@ using namespace std;
 
 
 template<typename T>
-struct ResizableArray {
+struct List {
+private:
 	T *array;
 	int size; //se va modifica la fiecare remove/add de element!
-
+	
+	class Iterator {
+	public:
+		T& operator *();
+		T* operator ->();
+		Iterator operator ++();
+		Iterator operator ++(int);
+	};
+	
+public:
+	typedef Iterator iterator;
 	// Metoda de initializare
-	ResizableArray() {
+	List() {
 		this->size = 0;
 		this->array = new T[ 0 ];
 	}
@@ -49,6 +60,12 @@ struct ResizableArray {
 		size = size-1;
 
 	}
+	
+	void push_back(const T& element);
+	void push_front(const T& element);
+	
+	iterator begin();
+	iterator end();
 
 	// Metoda care afiseaza elementele vectorului.
 	void print() {
