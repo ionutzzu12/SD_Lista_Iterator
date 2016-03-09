@@ -4,11 +4,11 @@
 using namespace std;
 
 int main() {
-    ResizableArray <int> list;
+    List <int> list;
     int n;
     std::cout << "n = ";
     std::cin >> n;
-    list = ResizableArray<int>();
+    list = List<int>();
 
     // Citirea si adaugarea a n elemente.
     for ( int i = 0; i < n; i++ ) {
