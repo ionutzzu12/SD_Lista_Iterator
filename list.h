@@ -2,8 +2,8 @@
 
 using namespace std;
 
-#ifndef __RESIZABLE_ARRAY__
-#define __RESIZABLE_ARRAY__
+#ifndef __LIST__
+#define __LIST__
 
 
 template<typename T>
@@ -77,4 +77,4 @@ public:
 	}
 };
 
-#endif // __RESIZABLE_ARRAY__
+#endif // __LIST__
