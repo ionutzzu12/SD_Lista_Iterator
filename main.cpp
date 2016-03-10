@@ -14,7 +14,7 @@ int main() {
     for ( int i = 0; i < n; i++ ) {
         int x; // al i-lea element citit de la tastatura
         std::cin >> x;
-        list.insert(x,i);
+        list.push_front(x);
     }
 
     // Afisare continut vector
