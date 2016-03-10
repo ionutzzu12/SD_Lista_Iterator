@@ -11,7 +11,7 @@ struct List {
 private:
 	T *array;
 	int size; //se va modifica la fiecare remove/add de element!
-	
+
 	class Iterator {
 	public:
 		T& operator *();
@@ -19,7 +19,7 @@ private:
 		Iterator operator ++();
 		Iterator operator ++(int);
 	};
-	
+
 public:
 	typedef Iterator iterator;
 	// Metoda de initializare
@@ -35,7 +35,8 @@ public:
 
 		for(i =0; i < index; i++)
 			tmpArray[i] = array[i];
-		tmpArray[index]= element;
+
+        tmpArray[index]= element;
 		for(i = index + 1; i< size + 1; i++)
 			tmpArray[i] = array[i-1];
 
@@ -60,10 +61,29 @@ public:
 		size = size-1;
 
 	}
-	
-	void push_back(const T& element);
-	void push_front(const T& element);
-	
+
+	void push_back(T element)
+	{
+	    T *tmpArray = new T[size+1];
+	    for (int i=0;i<size;i++) tmpArray[i]=array[i];
+	    tmpArray[size]=element;
+
+        delete [] array;
+        array=tmpArray;
+	    size++;
+	}
+
+	void push_front(T element)
+	{
+	    T *tmpArray = new T[size+1];
+	    tmpArray[0]=element;
+	    for (int i=1;i<size+1;i++) tmpArray[i]=array[i-1];
+
+        delete [] array;
+        array=tmpArray;
+	    size++;
+	}
+
 	iterator begin();
 	iterator end();
 
